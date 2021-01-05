@@ -3,53 +3,42 @@ using System.Collections.Generic;
 
 namespace BlackJack
 {
-    public class Card
+    enum Suit { diamond, club, heart, spade }
+
+    class Card
     {
-        public string Mark { get; set; }
+        // トランプの数値
+        public int No { get; }
 
-        // 1,トランプの数値
-        public int No { get; set; }
+        // マーク
+        public Suit Suit { get; }
 
-        // 2,トランプの表示
-        public string NoString
+        // 絵柄
+        public string Rank =>
+            No == 1 ? "A" :
+            No == 11 ? "J" :
+            No == 12 ? "Q" :
+            No == 13 ? "K" :
+            No.ToString();
+
+
+        // 表か裏か
+        public bool FaceUp { get; set; }
+
+        public Card(Suit suit, int no)
         {
-            get
-            {
-                // 1,トランプの数値を使用して判定する
-                switch (No)
-                {
-                    case 1:
-                        return "A";
-                    case 11:
-                        return "J";
-                    case 12:
-                        return "Q";
-                    case 13:
-                        return "K";
-                }
-
-                return No.ToString();
-            }
+            if (no < 1 || 13 < no)
+                throw new ArgumentOutOfRangeException(nameof(no));
+            this.No = no;
+            this.Suit = suit;
         }
 
-        // 3,ブラックジャックの点
-        public int Point
+        // カード表示用
+        public override string ToString()
         {
-            get
-            {
-                // 1,トランプの数値を利用して判定
-                switch (No)
-                {
-                    case 11:
-                        return 10;
-                    case 12:
-                        return 10;
-                    case 13:
-                        return 10;
-                }
-
-                return No;
-            }
+            var suit = FaceUp ? Suit.ToString() : "???????";
+            var rank = FaceUp ? Rank : "??";
+            return $"[{suit,7}|{rank,2}]";
         }
     }
     class Program
