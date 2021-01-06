@@ -41,11 +41,4 @@ namespace BlackJack
             return $"[{suit,7}|{rank,2}]";
         }
     }
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!!");
-        }
-    }
 }
