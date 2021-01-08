@@ -72,12 +72,18 @@ namespace BlackjackApp
                 Drawn();
         }
 
+        internal bool ConfrimEndOrContinue(string v1, char v2, char v3)
+        {
+            throw new NotImplementedException();
+        }
+
         // ヒット・スタンド確認
         bool ConfrimHitOrStand(string message, char hit, char stand)
         {
             while (true)
             {
                 Write($"{message} [{hit}/{stand}]");
+
                 var key = ReadKey().KeyChar;
                 WriteLine();
                 if (key == hit)
@@ -108,6 +114,8 @@ namespace BlackjackApp
             WriteLine("This game was drawn...");
             End();
         }
+
+ 
 
         // 終了
         void End()
