@@ -22,7 +22,7 @@ namespace BlackJack
             No.ToString();
 
 
-        // 表か裏か
+        // 表か裏か?
         public bool FaceUp { get; set; }
 
         public Card(Suit suit, int no)
