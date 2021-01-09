@@ -26,22 +26,15 @@ namespace Blackjack
 
         static void Main(string[] args)
         {
-            var deck = new Deck();
-            var player = new Player(new Hand(), deck, "Player");
-            var dealer = new Player(new Hand(), deck, "Dealer");
-            var game = new Game(player, dealer);
             Program obj = new Program();
-            game.Run();
-
-            bool flag = obj.ConfrimEndOrContinue("End or Continue?", 'e', 'c');
-            if (flag)
+            do
             {
-                Environment.Exit(0);
-            }
-            else
-            {
+                var deck = new Deck();
+                var player = new Player(new Hand(), deck, "Player");
+                var dealer = new Player(new Hand(), deck, "Dealer");
+                var game = new Game(player, dealer);
                 game.Run();
-            }
+            } while (obj.ConfrimEndOrContinue("Continue or End?", 'c', 'e'));
         }
     }
 }

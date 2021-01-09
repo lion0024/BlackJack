@@ -41,6 +41,7 @@ namespace BlackjackApp
                     WriteLine($"{Player.Name} have over 21, {Player.Name} bust!");
                     WriteLine();
                     Lost();
+                    return;
                 }
             }
             WriteLine();
@@ -72,11 +73,6 @@ namespace BlackjackApp
                 Drawn();
         }
 
-        internal bool ConfrimEndOrContinue(string v1, char v2, char v3)
-        {
-            throw new NotImplementedException();
-        }
-
         // ヒット・スタンド確認
         bool ConfrimHitOrStand(string message, char hit, char stand)
         {
@@ -98,31 +94,18 @@ namespace BlackjackApp
         void Won()
         {
             WriteLine($"{Player.Name} won. Congrats!");
-            End();
         }
 
         // 負け
         void Lost()
         {
             WriteLine($"{Player.Name} lost.");
-            End();
         }
 
         // 引き分け
         void Drawn()
         {
             WriteLine("This game was drawn...");
-            End();
-        }
-
- 
-
-        // 終了
-        void End()
-        {
-            WriteLine("To close, press any key.");
-            ReadKey(intercept: true);
-            Environment.Exit(0);
         }
     }
 }
