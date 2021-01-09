@@ -34,7 +34,7 @@ namespace Blackjack
                 var dealer = new Player(new Hand(), deck, "Dealer");
                 var game = new Game(player, dealer);
                 game.Run();
-            } while (obj.ConfrimEndOrContinue("Continue or End?", 'c', 'e'));
+            } while (obj.ConfrimEndOrContinue("Continue or End ?", 'c', 'e'));
         }
     }
 }
