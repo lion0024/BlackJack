@@ -1,4 +1,6 @@
-﻿using BlackJack;
+﻿using System;
+using BlackJack;
+using BlackjackApp;
 using static System.Console;
 
 namespace Blackjack
@@ -27,10 +29,22 @@ namespace Blackjack
         // カードを1枚引く
         public void Take(bool faceUp = true)
         {
-            var card = Deck.Pop();
-            card.FaceUp = faceUp;
-            ShowTookCard(card);
-            Hand.Add(card);
+            // 山札の有無確認
+            if (Deck.IsEmpty())
+            {
+                var card = Deck.Pop();
+                card.FaceUp = faceUp;
+                ShowTookCard(card);
+                Hand.Add(card);
+            }
+            else
+            {
+                WriteLine("<< The deck is exhausted. >> ");
+                WriteLine("To close, press any key.");
+                ReadKey(intercept: true);
+                Environment.Exit(0);
+            }
+            
         }
 
         // カードの表示

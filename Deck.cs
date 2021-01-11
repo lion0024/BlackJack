@@ -16,8 +16,16 @@ namespace BlackJack
             Cards = new Stack<Card>(shuffled);
         }
 
+        public bool IsEmpty()
+        {
+            return Cards.Count > 0;
+        }
+
         // デッキの先頭からカードを1枚取り出す
-        public Card Pop() => Cards.Pop();
+        public Card Pop()
+        {
+            return Cards.Pop();
+        }
 
         // 新しく52枚のカードを用意する
         private IEnumerable<Card> CreateCards()

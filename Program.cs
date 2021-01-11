@@ -27,9 +27,9 @@ namespace Blackjack
         static void Main(string[] args)
         {
             Program obj = new Program();
+            Deck deck = new Deck();
             do
             {
-                var deck = new Deck();
                 var player = new Player(new Hand(), deck, "Player");
                 var dealer = new Player(new Hand(), deck, "Dealer");
                 var game = new Game(player, dealer);
