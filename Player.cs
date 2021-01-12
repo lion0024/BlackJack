@@ -21,9 +21,18 @@ namespace Blackjack
 
         public Player(Hand hand, Deck deck, string name)
         {
-            Hand = hand;
-            Deck = deck;
-            Name = name;
+            try
+            {
+                Hand = hand;
+                Deck = deck;
+                Name = name;
+            }
+            catch (OutOfMemoryException e)
+            {
+                Console.WriteLine("Terminating application unexpextedly...");
+                Environment.FailFast(string.Format("Out of Memory: {0}", e.Message));
+            }
+            
         }
 
         // カードを1枚引く
