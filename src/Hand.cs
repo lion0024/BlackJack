@@ -15,6 +15,8 @@ namespace BlackJack
         public void Add(Card card) => Cards.Add(card);
 
         // 点数を計算する
+        // ＜検討＞Aの扱いを常に11にして21を超えた場合に
+        // -10したほうがいいのか
         public int ComputeScore()
         {
             var sum = Cards.Sum(card => card.No > 10 ? 10 : card.No);
