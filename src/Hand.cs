@@ -15,21 +15,20 @@ namespace BlackJack
         public void Add(Card card) => Cards.Add(card);
 
         // 点数を計算する
-        // ＜検討＞Aの扱いを常に11にして21を超えた場合に
-        // -10したほうがいいのか
         public int ComputeScore()
         {
-            var sum = Cards.Sum(card => card.No > 10 ? 10 : card.No);
-            if (ContainsAce && sum <= 11)
+            int sum = Cards.Sum(card => card.No > 10 ? 10 : card.No);
+            int AceCount = ContainsAce;
+            sum += AceCount * 10;
+            while (AceCount-- > 0 && sum > 21)
             {
-                sum += 10;
+                sum -= 10;
             }
             return sum;
         }
 
         // エースが含まれているか
-        private bool ContainsAce =>
-            Cards.Any(card => card.No == 1);
+        private int ContainsAce => Cards.Count(card => card.No == 1);
 
         // 手札の内容表示
         public override string ToString() =>

@@ -16,6 +16,7 @@ namespace BlackJack
             Cards = new Stack<Card>(shuffled);
         }
 
+        // 山札が残っているか
         public bool IsEmpty()
         {
             return Cards.Count > 0;
