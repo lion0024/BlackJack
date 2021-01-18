@@ -93,7 +93,7 @@ namespace BlackjackApp
         // 勝ち
         void Won()
         {
-            WriteLine($"{Player.Name} won. Congrats!");
+            WriteLine($"{Player.Name} won. Congraturation!");
         }
 
         // 負け
