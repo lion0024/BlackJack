@@ -7,7 +7,7 @@ namespace Blackjack
 {
     class Program
     {
-        // end・continue確認
+        // Continue or End確認
         bool ConfrimEndOrContinue(string message, char end, char con)
         {
             while (true)
