@@ -30,7 +30,7 @@ namespace BlackJack
             if (no < 1 || 13 < no)
                 throw new ArgumentOutOfRangeException(nameof(no));
             this.No = no;
-            this.Suit = suit;
+            Suit = suit;
         }
 
         // カード表示用
